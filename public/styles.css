@@ -1,7 +1,7 @@
 html, body {
     box-sizing: border-box;
     background: #0099ff;
-    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 20px;
   }
   
@@ -21,10 +21,12 @@ html, body {
      
   .suggestions li {
     background: #ffa600;
+    background: linear-gradient(orange, yellow);
     list-style: none;
     border-bottom: 1px solid #D8D8D8;
     margin: 10px;
     padding: 5px;
+    font-family: 'Roboto', sans-serif;
   }
   
   span.name {
@@ -32,6 +34,10 @@ html, body {
   }
 
   span.address {
+    font-size: 15px;
+  }
+
+  span.cityandzip {
     font-size: 15px;
   }
 

@@ -21,6 +21,7 @@ function displayMatches() {
             <li>
                 <span class="name">${place.name}</span><br>
                 <span class="address">${place.address_line_1}</span><br>
+                <span class="cityandzip">${place.city}, ${place.zip}</span><br>
                 <span class="category">Category: ${place.category}</span><br>
                 <span class="inspection">Inspection Results: ${place.inspection_results}</span>                
                 </span>
