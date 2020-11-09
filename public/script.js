@@ -7,17 +7,23 @@ fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json')
 function findMatches(wordsToMatch, restaurants) {
     return restaurants.filter(place => {
         const regex = new RegExp(wordsToMatch, 'gi');
-        return place.name.match(regex)
+        return place.name.match(regex) || place.category.match(regex) || place.inspection_results.match(regex) || place.address_line_1.match(regex)
     });
 }
 
 function displayMatches() {
     const matchArray = findMatches(this.value, restaurants);
-    console.log(matchArray);
     const html = matchArray.map(place => {
+        if(matchArray.length == 1000){
+            return [];
+        }
         return `
             <li>
-                <span class="name">${place.name}, ${place.state}</span>
+                <span class="name">${place.name}</span><br>
+                <span class="address">${place.address_line_1}</span><br>
+                <span class="category">Category: ${place.category}</span><br>
+                <span class="inspection">Inspection Results: ${place.inspection_results}</span>                
+                </span>
             </li>
         `;
     }).join('');
@@ -27,5 +33,4 @@ function displayMatches() {
 const textInput = document.querySelector('.textinput');
 const suggestions = document.querySelector('.suggestions');
 
-textInput.addEventListener('change', displayMatches);
-textInput.addEventListener('keyup', displayMatches);
+textInput.addEventListener('input', displayMatches);
